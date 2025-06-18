@@ -50,7 +50,7 @@
     
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import ActionPanel from '../../common/components/ActionPanel.vue';
 import type { Order } from '../interface/orders.interface';
 import { useOrderItemStore } from '../stores/order.store';
@@ -65,15 +65,10 @@ const props = defineProps<{
     data_list: Order[]
 }>()
 
+
 const listOrderView = ref<Order[]>([])
 
-if ( client.client.value?.access_level !== AccessLevel.admin ) {
-    props.data_list.map( value => {
-        if(value.state != OrderState.Culminado) listOrderView.value.push(value);
-    })
-} else {
-    listOrderView.value = props.data_list;
-}
+
 
 const emit = defineEmits(["onStatusMenu"])
 const selectedItem = ref<any>({});
@@ -97,4 +92,21 @@ const selectItem = (item: Order) => {
     
 }
 
+watch(
+    () => props.data_list,
+    (newVal) => {
+    
+        listOrderView.value = [];
+        if ( client.client.value?.access_level !== AccessLevel.admin ) {
+            newVal.map( value => {
+                if(value.state !== OrderState.Culminado) listOrderView.value.push(value);
+            })
+        } else {
+            listOrderView.value = [...newVal];
+        }
+
+
+    },
+    { deep: true, immediate: true }
+);
 </script>

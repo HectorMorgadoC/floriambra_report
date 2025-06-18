@@ -177,7 +177,7 @@ const getListOrder = async () => {
 
         if (Array.isArray(response)) {
             if(response.length > 0) {
-                listOrders.value = response;
+                listOrders.value = [...response];
                 onStatus.value = true;
             } else {
                 onStatus.value = false;

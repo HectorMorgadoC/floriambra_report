@@ -1,5 +1,5 @@
 <template>
-   <div class="flex justify-center items-start h-screen mx-4 sm:mx-8 md:mx-20 my-10">
+   <div class="flex justify-center items-start min-h-screen mx-4 sm:mx-8 md:mx-20 my-10">
         <form @submit.prevent="registerInfo" class="w-full max-w-md bg-[#3d3b46] p-6 sm:p-8 md:p-10 shadow-md">
             <h3 
             class="mb-5 block text-4xl text-center font-extrabolt text-[#EEE0D3] mb-1"

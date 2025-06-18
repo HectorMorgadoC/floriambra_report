@@ -1,5 +1,5 @@
 <template>
-   <div class="flex justify-center items-start h-screen mx-4 sm:mx-8 md:mx-20 my-10">
+    <div class="flex justify-center items-start min-h-screen mx-4 sm:mx-8 md:mx-20 my-10">
         <form @submit.prevent="registerInfo" class="w-full max-w-md bg-[#3d3b46] p-6 sm:p-8 md:p-10 shadow-md">
             <h3 
             class="mb-5 block text-4xl text-center font-extrabolt text-[#EEE0D3] mb-1"
@@ -95,7 +95,7 @@
                 >
                     <option disabled value="">{{ currentOrderStatus[0] }}</option>
                     <option 
-                    v-for="[key, value] in Object.entries(OrderState)"
+                    v-for="[key, value] in Object.entries(OrderStateOptional)"
                     :value="value"
                     >
                         {{ key }}</option>
@@ -150,7 +150,7 @@
     import { useClientStorage } from '../../auth/composable/useClientStorage';
     import type { Team } from '../../team/interface/team.interface';
     import type { SubClient } from '../../auth/interfaces/subClient-interface';
-    import { OrderState } from '../interface/orderState.interface';
+    import { OrderState, OrderStateOptional } from '../interface/orderState.interface';
 
     const clientStore = useClientStorage();
     const listTeam = ref<Team[]>([])

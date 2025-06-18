@@ -4,3 +4,7 @@ export enum OrderState {
     Culminado = "done",
 }
 
+export enum OrderStateOptional {
+    Esperando = "not_starter",
+    Progresando = "in_progress",
+}
