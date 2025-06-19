@@ -268,7 +268,7 @@
                     summary_of_activities: values.summary_of_activities,
                     used_spare_parts: values.used_spare_parts,
                     remarks: values.remarks
-                }, currentReport.id_report as UUIDTypes)"
+                }, currentReport.id_report)"
                 type="submit"
                 class="w-full bg-[#FC3B47] text-xl text-[#EEE0D3] py-3 mt-4 font-semibold hover:bg-[#F2564F] transition"
             >
@@ -286,7 +286,6 @@
     import * as yup from 'yup'
     import { useReportItemStore } from '../stores/report.store';
     import { AccessLevel } from '../../auth/interfaces/access-level.enum';
-    import type { UUIDTypes } from 'uuid';
     import { useClientStorage } from '../../auth/composable/useClientStorage';
     import type { Team } from '../../team/interface/team.interface';
     import type { SubClient } from '../../auth/interfaces/subClient-interface';

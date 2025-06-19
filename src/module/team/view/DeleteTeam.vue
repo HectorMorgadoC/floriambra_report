@@ -1,10 +1,10 @@
 <template>
     <div class="fixed inset-0 flex items-center justify-center">
         <div class="w-11/12 max-w-md bg-[#3d3b46] p-6 ">
-            <h3 class="text-3xl font-medium text-[#F3ECDE] my-4 pb-2 text-center">{{ processStore.processItem.name }}</h3>
+            <h3 class="text-3xl font-medium text-[#F3ECDE] my-4 pb-2 text-center">{{ teamStore.teamItem.name }}</h3>
             
             <div class="w-full text-[#EEE0D3] text-justify text-2xl mb-6">
-                <p v-for="[key, value] in Object.entries(processStore.processItem)" :key="key" class="my-2 px-8">
+                <p v-for="[key, value] in Object.entries(teamStore.teamItem)" :key="key" class="my-2 px-8">
                     {{ key }}: {{ value }}
                 </p>
             </div>
@@ -29,25 +29,25 @@
 
 <script setup lang="ts">
 import type { UUIDTypes } from 'uuid';
-import { deleteProcess } from '../action/deleteTeam.action';
-import { useProcessItemStore } from '../stores/team.store';
+import { deleteTeam } from '../action/deleteTeam.action';
+import { useTeamItemStore } from '../stores/team.store';
 import router from '../../../router';
 import { useToast } from 'vue-toastification';
-import { updateListProcess } from '../action/updateListTeam';
+import { updateListTeam } from '../action/updateListTeam';
 
 
-const processStore = useProcessItemStore()
-const processId = processStore.processItem.id
+const teamStore = useTeamItemStore()
+const teamId = teamStore.teamItem.id
 const toast = useToast()
 
 
 const deleteProcessForId = async() => {
     try {
-        const response = await deleteProcess(processId as UUIDTypes);
+        const response = await deleteTeam(teamId as UUIDTypes);
 
         if("code" in response) {
             if(response.code === 200) {
-                await updateListProcess();
+                await updateListTeam();
                 toast.success("Process successfully eliminated")
                 router.replace({name: "menu"})
             }
