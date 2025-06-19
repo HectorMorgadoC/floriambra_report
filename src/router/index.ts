@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Landing from '../landing/Landing.vue';
-import isNotAuthenticatedGuard from '../module/auth/guards/is-not-authenticated.guard';
 import isAuthenticatedGuard from '../module/auth/guards/is-authenticated.guard';
 
 const router = createRouter({
