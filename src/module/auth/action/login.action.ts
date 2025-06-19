@@ -14,7 +14,7 @@ export const loginAction = async (
 
 
   try {
-    const response  = await managementApi.post<Client>('/client/login', {
+    const response  = await managementApi.post('/client/login', {
       email,
       password,
     });
@@ -22,15 +22,16 @@ export const loginAction = async (
     const { cookies } = useCookies()
     const bearer: string = response.headers['authorization'];
     const token = bearer.split(" ")[1];
+    const { client } = response.data;
     cookies.set(TOKEN_COOKIE_KEY, token, '1d');
     
     return {
-      id: response.data.id,
-      username: response.data.username,
-      access_level: response.data.access_level as AccessLevel,
-      teams: response.data.teams,
-      process: response.data.process,
-      clients: response.data.clients
+      id: client.id,
+      username: client.username,
+      access_level: client.access_level as AccessLevel,
+      teams: client.teams,
+      process: client.process,
+      clients: client.data.clients
     };
   } catch (error) {
 
