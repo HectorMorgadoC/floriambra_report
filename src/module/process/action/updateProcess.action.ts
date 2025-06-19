@@ -1,5 +1,4 @@
 import { managementApi } from "../../../api/managementApi";
-import type { Client } from "../../auth/interfaces/client.interface";
 import { useAuthStore } from "../../auth/stores/auth.store";
 import type { MessageError } from "../../common/interface/message-error.interface";
 import { isAxiosError } from "axios";
