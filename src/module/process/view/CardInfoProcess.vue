@@ -2,7 +2,6 @@
     <div v-if="!isEditMode" class="flex gap-[25px] flex-wrap justify-center items-stretch content-center list-none mt-10">
         <li 
         v-for="item of props.data_list" 
-        :key="item.id"
         >
         <ul  class="w-full max-w-lg flex flex-col justify-start items-start p-8 text-1xl text-[#EEE0D3] bg-[#3d3b46] hover:bg-[#575463] overflow-hidden break-words sm:w-screen p-8 h-full min-h-[200px]">
             <button @click="selectItem(item)" class="text-left">

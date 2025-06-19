@@ -97,7 +97,6 @@
 import { reactive, ref } from 'vue';
 import { useClientStorage } from '../../auth/composable/useClientStorage';
 import type { Team } from '../../team/interface/team.interface';
-import CardInfoOrder from '../view/CardInfoReport.vue';
 import type{ Report } from '../interface/report.interface';
 import { getReportFilters } from '../action/getReportFilter.action';
 import router from '../../../router';
