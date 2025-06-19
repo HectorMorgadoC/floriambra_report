@@ -2,9 +2,10 @@ import axios from 'axios';
 import { useCookies } from 'vue3-cookies';
 
 const { cookies } = useCookies();
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const managementApi = axios.create({
-    baseURL: "http://localhost:5000/api",
+    baseURL: apiUrl,
 });
 
 managementApi.interceptors.request.use((config) => {
