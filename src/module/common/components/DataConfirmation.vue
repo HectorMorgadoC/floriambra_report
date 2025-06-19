@@ -29,7 +29,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import type { CreateClient } from '../../client/interface/createClient';
 
 const props = defineProps<{
     title: string,

@@ -146,7 +146,6 @@
     import type { UpdateOrder } from '../interface/updateOrder.interface';
     import { AccessLevel } from '../../auth/interfaces/access-level.enum';
     import { updateOrder } from '../action/updateOrder.action';
-    import type { UUIDTypes } from 'uuid';
     import { useClientStorage } from '../../auth/composable/useClientStorage';
     import type { Team } from '../../team/interface/team.interface';
     import type { SubClient } from '../../auth/interfaces/subClient-interface';
@@ -206,7 +205,7 @@
 
     const onStatus = ref<boolean>(false)
     
-    const currentOrderStatus = Object.entries(OrderState).find(([key, value]) => 
+    const currentOrderStatus = Object.entries(OrderState).find(([_, value]) => 
         value === currentOrder.state
     ) || ['', ''];
 

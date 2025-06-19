@@ -4,7 +4,7 @@ import { AccessLevel } from "./access-level.enum";
 import type { SubClient } from "./subClient-interface";
 
 export interface Client {
-    id: string
+    id?: string
     username: string,
     access_level: AccessLevel,
     teams?: Team[],
