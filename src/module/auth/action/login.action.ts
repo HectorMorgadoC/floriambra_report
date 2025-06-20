@@ -31,7 +31,7 @@ export const loginAction = async (
       access_level: client.access_level as AccessLevel,
       teams: client.teams,
       process: client.process,
-      clients: client.data.clients
+      clients: client.clients
     };
   } catch (error) {
 
